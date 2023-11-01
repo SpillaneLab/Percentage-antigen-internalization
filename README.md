@@ -2,8 +2,8 @@
 Fiji macros that can be used to reslice and max-project cells to visualize internalization and determine percent antigen internalization. 
 
 # Overview 
-Please read our Methods Chapter (reference to come) on the experimental setup to investigate antigen internalization. A common way to analyze the efficiency of B cell antigen internalization is to quantify the percentage of available antigen that B cells internalize from the immune synapse (1, 2). This can be determined by measuring the antigen fluorescence intensity in the cell (above the synapse plane), and dividing it by the total antigen fluorescence intensity in the cell and in the synapse (Figure 1).
-
+Please read our Methods Chapter (reference to come) on the experimental setup to investigate antigen internalization. A common way to analyze the efficiency of B cell antigen internalization is to quantify the percentage of available antigen that B cells internalize from the immune synapse (1, 2). This can be determined by measuring the antigen fluorescence intensity in the cell (above the synapse plane), and dividing it by the total antigen fluorescence intensity in the cell and in the synapse (Figure 1). <br/> <br/>
+![Picture1](https://github.com/SpillaneLab/Percentage-antigen-internalization/assets/143707918/01ae2dca-4f03-468b-8d7f-0c3610257f1f) <br/> <br/>
 Figure 1. (A) Maximum intensity projections of a naive B1-8 B cell that was plated onto planar lipid bilayer coated with NIP-coupled DNA sensors, fixed after 45 minutes, and stained for surface (B220) and intracellular (phospho-myosin light chain, pMLC) markers. (B) Schematic showing the distribution of internalized antigen located inside the cell, and total antigen in the cell and in the synapse. (C) Using Otsu thresholding, we generate masks using the B220 signal to define the "cell" and “cell + synapse" regions of interest, and overlay the masks onto the Atto647N signal. (D) The extracted Atto647N signal intensities are used to quantify the percentage of antigen internalized using the equation given in (B). Scale bars, 5 µm. 
 
 # Installation 
