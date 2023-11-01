@@ -39,18 +39,24 @@
        		//Open the image
        		open(path);
        		imagesName=getTitle();
+       		
        		//Get the filename without extension 
        		title = imagesName;
 			dotIndex = indexOf(title, ".");
 			basename = substring(title, 0, dotIndex); 
-      		
+			
+			//Duplicate the image and rename
       		run("Duplicate...", "duplicate");
        		rename("Image");
+       		
+       		//Run reslice 
 			run("Remove Overlay");
 			run("Select None");
 			run("Reslice [/]...", "output=0.500 start=Top avoid");
 			
+			//Reset brightness and contrast 
 			resetMinAndMax();
+			
 			//Save stack 
 			outName1 = "re_" + basename;
 			saveAs("tif", outputDir + "/" + outName1);
@@ -59,6 +65,3 @@
 run("Close All");
          }
   }
-			
-			
-       		
