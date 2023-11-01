@@ -1,0 +1,64 @@
+//This macro should be used to reslice a Z-stack image taken with Z-step size of 500 nm. 
+   
+   dir = getDirectory("Choose an input directory");
+   outputDir = getDirectory("Choose an output directory");
+   setBatchMode(true);
+   count = 0;
+   countFiles(dir);
+   n = 0;
+   processFiles(dir);
+
+   //Open all of the files within subfolders 
+   
+   function countFiles(dir) {
+   function countFiles(dir) {
+      list = getFileList(dir);
+      for (i=0; i<list.length; i++) {
+          if (endsWith(list[i], "/"))
+              countFiles(""+dir+list[i]);
+          else
+              count++;
+      }
+  }
+
+   function processFiles(dir) {
+      list = getFileList(dir);
+      for (i=0; i<list.length; i++) {
+          if (endsWith(list[i], "/"))
+              processFiles(""+dir+list[i]);
+          else {
+             showProgress(n++, count);
+             path = dir+list[i];
+             processFile(path);
+          }
+      }
+  }
+
+  function processFile(path) {
+       if (endsWith(path, ".tif")) {
+       		//Open the image
+       		open(path);
+       		imagesName=getTitle();
+       		//Get the filename without extension 
+       		title = imagesName;
+			dotIndex = indexOf(title, ".");
+			basename = substring(title, 0, dotIndex); 
+      		
+      		run("Duplicate...", "duplicate");
+       		rename("Image");
+			run("Remove Overlay");
+			run("Select None");
+			run("Reslice [/]...", "output=0.500 start=Top avoid");
+			
+			resetMinAndMax();
+			//Save stack 
+			outName1 = "re_" + basename;
+			saveAs("tif", outputDir + "/" + outName1);
+
+//Close everything
+run("Close All");
+         }
+  }
+			
+			
+       		
