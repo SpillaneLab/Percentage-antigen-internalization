@@ -1,7 +1,7 @@
 //This macro should be used to reslice a Z-stack image taken with Z-step size of 500 nm. 
    
    dir = getDirectory("Choose an input directory");
-   outputDir = getDirectory("Choose an output directory");
+   outputDir = getDirectory("Pick an output directory");
    setBatchMode(true);
    count = 0;
    countFiles(dir);
